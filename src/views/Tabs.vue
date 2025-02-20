@@ -75,8 +75,6 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const handleLogout = () => {
-  // Aquí puedes añadir lógica adicional de logout si es necesario
-  // Por ejemplo, limpiar el estado, tokens, etc.
   router.push('/Login');
 };
 </script>
@@ -90,6 +88,25 @@ const handleLogout = () => {
 
 ion-tab-button {
   background: transparent !important;
+  --color: white;
+  --color-selected: #ff007f;
+  transition: all 0.2s ease;
+}
+
+ion-tab-button::part(native) {
+  padding: 10px;
+}
+
+/* Efecto hover y seleccionado para tabs móviles */
+ion-tab-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+ion-tab-button.tab-selected {
+  ion-icon, ion-label {
+    color: #ff007f !important;
+    font-weight: bold;
+  }
 }
 
 /* Estilos para la barra lateral desktop */

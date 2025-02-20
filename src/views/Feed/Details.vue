@@ -44,12 +44,12 @@
               
               <div class="rating-container">
                 <div class="stars">
-                  <ion-icon v-for="n in 5" :key="n" 
+                  <ion-icon v-for="n in 4" :key="n" 
                     :icon="n <= post.rating ? star : starOutline" 
                     class="star-icon">
                   </ion-icon>
                 </div>
-                <span class="rating-text">({{ post.ratingValue }} de 4.0)</span>
+                <span class="rating-text">({{ post.ratingValue }})</span>
               </div>
 
               <div class="details-grid">
@@ -220,6 +220,14 @@ const goToInicio = () => {
   --border-width: 2px;
   --border-radius: 20px;
   font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.follow-btn:hover,
+.follow-btn:active {
+  --background: linear-gradient(to right, #230A34, #2C1D92);
+  --border-color: transparent;
+  box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
 }
 
 .venue-details {
@@ -276,18 +284,22 @@ const goToInicio = () => {
   --border-radius: 20px;
   --padding-top: 15px;
   --padding-bottom: 15px;
+  --color: white;
   font-size: 16px;
   font-weight: bold;
   margin-top: 15px;
   position: relative;
   overflow: hidden;
   border: 2px solid #4D4DFF;
+  border-radius: 20px;
   transition: all 0.3s ease;
 }
 
-.reserve-btn:hover {
-  --background: linear-gradient(to right, #671694, #1F0C66);
-  box-shadow: 0 0 15px rgba(77, 77, 255, 0.5);
+.reserve-btn:hover,
+.reserve-btn:active {
+  --background: linear-gradient(to right, #230A34, #2C1D92);
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
 }
 
 @media (min-width: 769px) {

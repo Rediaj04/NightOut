@@ -72,7 +72,10 @@
           </div>
 
           <div class="stars">
-            <ion-icon v-for="n in 5" :key="n" :icon="n <= post.rating ? star : starOutline" class="star-icon"></ion-icon>
+            <ion-icon v-for="n in 4" :key="n" 
+              :icon="n <= post.rating ? star : starOutline" 
+              class="star-icon">
+            </ion-icon>
           </div>
         </div>
       </div>
