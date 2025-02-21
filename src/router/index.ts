@@ -36,9 +36,9 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Perfil.vue'),
       },
       {
-        path: 'Reservar', 
-        name: 'Reservar',
-        component: () => import('@/views/Reservar.vue'),
+        path: 'CrearReserva', 
+        name: 'CrearReserva',
+        component: () => import('@/views/CrearReserva.vue'),
       },
       {
         path: 'Reservas', 
@@ -61,17 +61,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/Login/Sesion', 
     name: 'IniciaS',
-    component: () => import('@/views/LoginRT/IniciaS.vue'),
+    component: () => import('@/views/LoginLogica/IniciaS.vue'),
   },
   {
     path: '/Login/Contrasena', 
     name: 'OlvidarC',
-    component: () => import('@/views/LoginRT/OlvidarC.vue'),
+    component: () => import('@/views/LoginLogica/OlvidarC.vue'),
   },
   {
     path: '/Login/Registro', 
     name: 'Registro',
-    component: () => import('@/views/LoginRT/Registro.vue'),
+    component: () => import('@/views/LoginLogica/Registro.vue'),
   },
 ];
 

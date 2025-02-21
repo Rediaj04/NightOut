@@ -20,14 +20,14 @@ import greenValleyPost2 from '@/assets/imagenes/feed/green/post2.jpg';
 import greenValleyPost3 from '@/assets/imagenes/feed/green/post3.jpg';
 import greenValleyPost4 from '@/assets/imagenes/feed/green/post4.jpg';
 import greenValleyPost5 from '@/assets/imagenes/feed/green/post5.jpg';
-import greenValleyLogo from '../assets/imagenes/feed/green/logogreen.jpg';
+import greenValleyLogo from '@/assets/imagenes/feed/green/logogreen.jpg';
 
 import bootshausPost1 from '@/assets/imagenes/feed/bootshaus/post1.jpg';
 import bootshausPost2 from '@/assets/imagenes/feed/bootshaus/post2.jpg';
 import bootshausPost3 from '@/assets/imagenes/feed/bootshaus/post3.jpg';
 import bootshausPost4 from '@/assets/imagenes/feed/bootshaus/post4.jpg';
 import bootshausPost5 from '@/assets/imagenes/feed/bootshaus/post5.jpg';
-import bootshausLogo from '../assets/imagenes/feed/bootshaus/bootshauslogo.jpg';
+import bootshausLogo from '@/assets/imagenes/feed/bootshaus/bootshauslogo.jpg';
 
 import echostagePost1 from '@/assets/imagenes/feed/echostage/post1.jpg';
 import echostagePost2 from '@/assets/imagenes/feed/echostage/post2.jpg';
@@ -44,6 +44,7 @@ interface Post {
   profileImage: string;
   description: string;
   location: string;
+  coordinates: [number, number];
   minAge: number;
   musicType: string;
   price: string;
@@ -72,7 +73,8 @@ export const usePostsStore = defineStore('posts', {
         ],
         profileImage: dulcineaLogo,
         description: "Un lugar vibrante con música en vivo y ambiente único.",
-        location: "Calle las Lunas 77, Ciudad",
+        location: "Carrer de Marina, 19-21, Barcelona",
+        coordinates: [41.4503, 2.1934] as [number, number],
         minAge: 18,
         musicType: "Electrónica, Pop, Reguetón",
         price: "$12,000 COP por entrada",
@@ -87,7 +89,7 @@ export const usePostsStore = defineStore('posts', {
       },
       {
         id: 2,
-        name: "Hi Ibiza",
+        name: "Hi Ibiza BCN",
         images: [
           hiIbizaPost1,
           hiIbizaPost2,
@@ -97,7 +99,8 @@ export const usePostsStore = defineStore('posts', {
         ],
         profileImage: hiIbizaLogo,
         description: "Uno de los clubes más famosos de Ibiza, conocido por sus fiestas épicas.",
-        location: "Playa d'en Bossa, Ibiza",
+        location: "Carrer dels Almogàvers, 123, Barcelona",
+        coordinates: [41.4612, 2.1876] as [number, number],
         minAge: 21,
         musicType: "House, Techno",
         price: "€50 por entrada",
@@ -112,7 +115,7 @@ export const usePostsStore = defineStore('posts', {
       },
       {
         id: 3,
-        name: "Green Valley",
+        name: "Green Valley BCN",
         images: [
           greenValleyPost1,
           greenValleyPost2,
@@ -122,7 +125,8 @@ export const usePostsStore = defineStore('posts', {
         ],
         profileImage: greenValleyLogo,
         description: "Un paraíso para los amantes de la música electrónica en medio de la naturaleza.",
-        location: "Camboriú, Brasil",
+        location: "Carrer de Pere IV, 412, Barcelona",
+        coordinates: [41.4578, 2.2145] as [number, number],
         minAge: 18,
         musicType: "Techno, Trance",
         price: "R$100 por entrada",
@@ -137,7 +141,7 @@ export const usePostsStore = defineStore('posts', {
       },
       {
         id: 4,
-        name: "Bootshaus",
+        name: "Bootshaus BCN",
         images: [
           bootshausPost1,
           bootshausPost2,
@@ -147,7 +151,8 @@ export const usePostsStore = defineStore('posts', {
         ],
         profileImage: bootshausLogo,
         description: "Uno de los clubes más reconocidos de Alemania, famoso por su producción de eventos de alta calidad.",
-        location: "Colonia, Alemania",
+        location: "Carrer de la Llacuna, 25, Barcelona",
+        coordinates: [41.4432, 2.2067] as [number, number],
         minAge: 18,
         musicType: "Techno, House",
         price: "€30 por entrada",
@@ -162,7 +167,7 @@ export const usePostsStore = defineStore('posts', {
       },
       {
         id: 5,
-        name: "Echostage",
+        name: "Echostage BCN",
         images: [
           echostagePost1,
           echostagePost2,
@@ -172,7 +177,8 @@ export const usePostsStore = defineStore('posts', {
         ],
         profileImage: echostageLogo,
         description: "Uno de los clubes más grandes y populares de Estados Unidos, conocido por su producción de eventos de clase mundial.",
-        location: "Washington, D.C., Estados Unidos",
+        location: "Rambla de Poblenou, 186, Barcelona",
+        coordinates: [41.4489, 2.1789] as [number, number],
         minAge: 18,
         musicType: "EDM, House, Techno",
         price: "$40 por entrada",

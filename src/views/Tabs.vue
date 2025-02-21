@@ -14,7 +14,7 @@
         <ion-label>Búsqueda</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="Reservar" href="/Reservar">
+      <ion-tab-button tab="CrearReserva" href="/CrearReserva">
         <ion-icon aria-hidden="true" :icon="add" />
         <ion-label>Añadir</ion-label>
       </ion-tab-button>
@@ -44,7 +44,7 @@
           <span>Búsqueda</span>
         </router-link>
 
-        <router-link to="/Reservar" class="nav-item" active-class="active">
+        <router-link to="/CrearReserva" class="nav-item" active-class="active">
           <ion-icon :icon="add"></ion-icon>
           <span>Crear reserva</span>
         </router-link>

@@ -111,9 +111,9 @@ import {
   personOutline,
 } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
-import { usePostsStore } from '@/stores/posts';
+import { usePostsStore } from '@/components/stores/posts';
 import { computed, ref } from 'vue';
-import ImageViewer from '@/components/ImageViewer.vue';
+import ImageViewer from '@/components/ImageViewer/ImageViewer.vue';
 
 // Importaciones de Swiper
 import { Swiper, SwiperSlide } from 'swiper/vue';

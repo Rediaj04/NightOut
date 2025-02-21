@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <ion-button class="login-button" router-link="/Inicio">
+        <ion-button class="login-button" router-link="/Inicio"> <!--router-link="/Inicio"> -->
           LOGIN
         </ion-button>
       </div>

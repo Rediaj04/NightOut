@@ -27,7 +27,7 @@ import { ref, computed } from 'vue';
 import { IonPage, IonContent, IonIcon, IonInput } from '@ionic/vue';
 import { arrowBack, close } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
-import { usePostsStore } from '../stores/posts'; 
+import { usePostsStore } from '../components/stores/posts'; 
 
 const router = useRouter();
 const searchQuery = ref('');

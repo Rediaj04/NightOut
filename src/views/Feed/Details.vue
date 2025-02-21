@@ -5,43 +5,47 @@
         <template v-if="post">
           <!-- Logo -->
           <div class="logo-header">
-            <h1 class="neon-logo">NightOut</h1>
           </div>
 
           <!-- Contenedor principal -->
           <div class="post-content">
-            <!-- Imagen principal con overlay -->
+            <!-- Imagen principal -->
             <div class="main-image-container">
               <swiper class="detail-swiper" :modules="[SwiperAutoplay, SwiperPagination]" 
-                     :pagination="{ clickable: true }" :autoplay="{ delay: 3000 }">
+                     :pagination="{ clickable: true }" :autoplay="{ delay: 3000 }"
+                     @swiper="onSwiper"
+                     @click="openImageViewer(post.images)">
                 <swiper-slide v-for="(image, index) in post.images" :key="index">
                   <img :src="image" alt="Post image" class="detail-image" />
                 </swiper-slide>
               </swiper>
-              
-              <!-- Información superpuesta -->
-              <div class="venue-header">
-                <div class="venue-info">
-                  <img :src="post.profileImage" alt="Profile" class="venue-profile" />
-                  <div>
-                    <h2 class="venue-name">
-                      {{ post.name }}
-                      <ion-icon :icon="checkmarkCircle" class="verified-icon"></ion-icon>
-                    </h2>
-                    <p class="venue-location">
-                      <ion-icon :icon="locationOutline"></ion-icon>
-                      {{ post.location }}
-                    </p>
-                  </div>
-                </div>
-                <ion-button class="follow-btn">SEGUIR</ion-button>
-              </div>
             </div>
 
-            <!-- Descripción y detalles -->
+            <!-- Contenedor de detalles -->
             <div class="venue-details">
+              <!-- Header reorganizado -->
+              <div class="venue-header">
+                <img :src="post.profileImage" alt="Profile" class="venue-profile" />
+                <h2 class="venue-name-details">
+                  {{ post.name }}
+                  <ion-icon :icon="checkmarkCircle" class="verified-icon"></ion-icon>
+                </h2>
+                <ion-button 
+                  class="follow-btn" 
+                  :class="{ 'following': isFollowing }" 
+                  @click="toggleFollow"
+                >
+                  {{ isFollowing ? 'Seguido' : 'Seguir' }}
+                </ion-button>
+              </div>
+
               <p class="venue-description">{{ post.description }}</p>
               
+              <p class="venue-location">
+                <ion-icon :icon="locationOutline"></ion-icon>
+                {{ post.location }}
+              </p>
+
               <div class="rating-container">
                 <div class="stars">
                   <ion-icon v-for="n in 4" :key="n" 
@@ -81,17 +85,27 @@
         </template>
       </div>
     </ion-content>
+
+    <!-- Image Viewer Modal -->
+    <ImageViewer
+      :is-open="isViewerOpen"
+      :images="selectedImages"
+      :initial-slide="selectedImageIndex"
+      @close="closeImageViewer"
+    />
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { usePostsStore } from '@/stores/posts';
+import { usePostsStore } from '@/components/stores/posts';
 import { IonPage, IonContent, IonButton, IonIcon } from '@ionic/vue';
 import { locationOutline, star, starOutline, checkmarkCircle } from 'ionicons/icons';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import type { Swiper as SwiperType } from 'swiper/types';
 import { Autoplay as SwiperAutoplay, Pagination as SwiperPagination } from 'swiper/modules';
+import ImageViewer from '@/components/ImageViewer/ImageViewer.vue';
 import 'swiper/swiper-bundle.css';
 
 // Definir la interfaz para el tipo Post
@@ -127,6 +141,38 @@ const post = computed<Post | undefined>(() => {
 const goToInicio = () => {
   router.push('/Inicio');
 };
+
+// Variables para el ImageViewer
+const isViewerOpen = ref(false);
+const selectedImages = ref<string[]>([]);
+const selectedImageIndex = ref(0);
+const currentSwiper = ref<SwiperType | null>(null);
+
+// Función para manejar el swiper
+const onSwiper = (swiper: SwiperType) => {
+  currentSwiper.value = swiper;
+};
+
+// Funciones para el ImageViewer
+const openImageViewer = (images: string[]) => {
+  if (currentSwiper.value) {
+    selectedImageIndex.value = currentSwiper.value.activeIndex;
+  } else {
+    selectedImageIndex.value = 0;
+  }
+  selectedImages.value = images;
+  isViewerOpen.value = true;
+};
+
+const closeImageViewer = () => {
+  isViewerOpen.value = false;
+};
+
+const isFollowing = ref(false);
+
+const toggleFollow = () => {
+  isFollowing.value = !isFollowing.value;
+};
 </script>
 
 <style scoped>
@@ -142,9 +188,9 @@ const goToInicio = () => {
 }
 
 .neon-logo {
-  color: #FF007F;
+  color: #FF9A23;
   font-size: 2rem;
-  text-shadow: 0 0 10px #FF007F;
+  text-shadow: 0 0 10px #FF9A23;
   margin: 0;
 }
 
@@ -164,38 +210,39 @@ const goToInicio = () => {
 
 .detail-image {
   width: 100%;
-  height: 300px;
+  height: 400px;
   object-fit: cover;
+  cursor: pointer;
+}
+
+.venue-details {
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  height: 400px;
 }
 
 .venue-header {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 15px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.venue-info {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .venue-profile {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 2px solid white;
 }
 
-.venue-name {
-  font-size: 20px;
+.venue-name-details {
+  flex: 1;
+  font-size: 21px;
+  color: #FF9A23;
   margin: 0;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 154, 35, 0.3);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -203,50 +250,27 @@ const goToInicio = () => {
 
 .verified-icon {
   color: #4D4DFF;
-}
-
-.venue-location {
-  margin: 5px 0 0;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: rgba(255,255,255,0.8);
-}
-
-.follow-btn {
-  --background: transparent;
-  --border-color: #4D4DFF;
-  --color: white;
-  --border-width: 2px;
-  --border-radius: 20px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.follow-btn:hover,
-.follow-btn:active {
-  --background: linear-gradient(to right, #230A34, #2C1D92);
-  --border-color: transparent;
-  box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
-}
-
-.venue-details {
-  padding: 15px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 15px;
+  font-size: 20px;
 }
 
 .venue-description {
-  font-size: 16px;
-  line-height: 1.4;
-  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.3;
+  margin: 8px 0;
+  max-height: 110px;
+  overflow-y: auto;
+}
+
+.venue-location {
+  font-size: 14px;
+  margin: 8px 0 12px;
 }
 
 .rating-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .stars {
@@ -261,38 +285,33 @@ const goToInicio = () => {
 
 .details-grid {
   display: grid;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .detail-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 10px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .detail-label {
-  color: #FF007F;
+  color: #FF9A23;
   font-weight: bold;
 }
 
 .reserve-btn {
   --background: linear-gradient(to right, #560C78, #180A51);
   --border-radius: 20px;
-  --padding-top: 15px;
-  --padding-bottom: 15px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
   --color: white;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 15px;
+  margin-top: 10px;
   position: relative;
   overflow: hidden;
   border: 2px solid #4D4DFF;
   border-radius: 20px;
   transition: all 0.3s ease;
+  font-size: 15px;
 }
 
 .reserve-btn:hover,
@@ -300,6 +319,27 @@ const goToInicio = () => {
   --background: linear-gradient(to right, #230A34, #2C1D92);
   border-color: transparent;
   box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
+}
+
+.follow-btn {
+  --background: transparent;
+  --border-color: white;
+  --border-style: solid;
+  --border-width: 1px;
+  --border-radius: 15px;
+  --color: white;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  font-size: 0.8rem;
+  height: 32px;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.follow-btn.following {
+  --background: white;
+  --border-color: white;
+  --color: #2B003A;
 }
 
 @media (min-width: 769px) {
@@ -321,13 +361,8 @@ const goToInicio = () => {
   }
 
   .venue-details {
-    margin-top: 0;
-    padding: 30px;
-    height: auto;
-    overflow-y: visible;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
+    height: 600px;
+    overflow-y: auto;
   }
 
   .details-grid {

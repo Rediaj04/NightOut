@@ -7,7 +7,7 @@
           <img src="@/assets/imagenes/info/logo.png" alt="Logo" class="logo">
           <ion-button class="auth-button" router-link="/Login/Sesion">LOGIN</ion-button>
           <ion-button class="auth-button">SIGN UP</ion-button>
-          <a href="Reservar" class="forgot-password">He olvidado mi contraseña</a>
+          <a href="CrearReserva" class="forgot-password">He olvidado mi contraseña</a>
       </div>
     </ion-content>
   </ion-page>
