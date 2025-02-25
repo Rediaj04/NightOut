@@ -185,24 +185,25 @@
     --color: white;
     margin-top: 8px;
     position: relative;
-    overflow: hidden;
-    border: 2px solid #4D4DFF;
+    width: 100%;
     font-weight: bold;
     font-size: 14px;
-    width: 100%;
     transition: all 0.3s ease;
-    border-radius: 20px !important;
+    --border-width: 2px;
+    --border-color: #4D4DFF;
+    --border-style: solid;
+    --box-shadow: none;
   }
 
   .reserve-btn::part(native) {
-    border-radius: 20px;
+    padding: 10px 20px;
   }
 
   .reserve-btn:hover,
   .reserve-btn:active {
     --background: linear-gradient(to right, #230A34, #2C1D92);
-    border-color: transparent;
-    box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
+    --border-color: #4D4DFF;
+    --box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
   }
 
   :deep(.leaflet-control-attribution) {

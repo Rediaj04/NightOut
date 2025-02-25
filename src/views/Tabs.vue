@@ -34,27 +34,27 @@
     <div class="desktop-sidebar">
       <h1 class="neon-title">NightOut</h1>
       <nav class="nav-menu">
-        <router-link to="/Inicio" class="nav-item" active-class="active">
+        <router-link to="/NightOut/Inicio" class="nav-item" active-class="active">
           <ion-icon :icon="home"></ion-icon>
           <span>Inicio</span>
         </router-link>
 
-        <router-link to="/Busqueda" class="nav-item" active-class="active">
+        <router-link to="/NightOut/Busqueda" class="nav-item" active-class="active">
           <ion-icon :icon="search"></ion-icon>
           <span>Búsqueda</span>
         </router-link>
 
-        <router-link to="/CrearReserva" class="nav-item" active-class="active">
+        <router-link to="/NightOut/CrearReserva" class="nav-item" active-class="active">
           <ion-icon :icon="add"></ion-icon>
           <span>Crear reserva</span>
         </router-link>
 
-        <router-link to="/Reservas" class="nav-item" active-class="active">
+        <router-link to="/NightOut/Reservas" class="nav-item" active-class="active">
           <ion-icon :icon="bookmark"></ion-icon>
           <span>Mis reservas</span>
         </router-link>
 
-        <router-link to="/Perfil" class="nav-item" active-class="active">
+        <router-link to="/NightOut/Perfil" class="nav-item" active-class="active">
           <ion-icon :icon="people"></ion-icon>
           <span>Perfil</span>
         </router-link>

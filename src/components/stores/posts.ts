@@ -56,6 +56,7 @@ interface Post {
   isLiked: boolean;
   isFollowing: boolean;
   isSaved: boolean;
+  fecha: string;
 }
 
 export const usePostsStore = defineStore('posts', {
@@ -83,6 +84,7 @@ export const usePostsStore = defineStore('posts', {
         likes: 9853,
         rating: 4,
         ratingValue: "3.9",
+        fecha: "25 Enero 2024",
         isLiked: false,
         isFollowing: false,
         isSaved: false
@@ -109,6 +111,7 @@ export const usePostsStore = defineStore('posts', {
         likes: 15000,
         rating: 3,
         ratingValue: "4.0",
+        fecha: "27 Enero 2024",
         isLiked: false,
         isFollowing: false,
         isSaved: false
@@ -135,6 +138,7 @@ export const usePostsStore = defineStore('posts', {
         likes: 12500,
         rating: 2,
         ratingValue: "3.8",
+        fecha: "29 Enero 2024",
         isLiked: false,
         isFollowing: false,
         isSaved: false
@@ -161,6 +165,7 @@ export const usePostsStore = defineStore('posts', {
         likes: 18000,
         rating: 5,
         ratingValue: "4.5",
+        fecha: "1 Febrero 2024",
         isLiked: false,
         isFollowing: false,
         isSaved: false
@@ -187,6 +192,7 @@ export const usePostsStore = defineStore('posts', {
         likes: 20000,
         rating: 5,
         ratingValue: "4.7",
+        fecha: "3 Febrero 2024",
         isLiked: false,
         isFollowing: false,
         isSaved: false

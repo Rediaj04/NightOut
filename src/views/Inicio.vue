@@ -96,8 +96,7 @@ import { IonPage, IonContent, IonIcon } from '@ionic/vue';
 import { 
   heart,
   heartOutline, 
-  logOutOutline, 
-  ellipsisVerticalOutline, 
+  logOutOutline,  
   calendarOutline, 
   shareOutline, 
   locationOutline, 
@@ -105,10 +104,6 @@ import {
   starOutline,
   bookmarkOutline,
   bookmarkSharp,
-  homeOutline,
-  searchOutline,
-  addCircleOutline,
-  personOutline,
 } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
 import { usePostsStore } from '@/components/stores/posts';

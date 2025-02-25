@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/Inicio.vue"),
   },
   {
-    path: '/', 
+    path: '/NightOut/', 
     component: Tabs, 
     children: [
       {
@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         redirect: 'Inicio', 
       },
       {
-        path: "/Inicio",
+        path: "Inicio",
         name: "Inicio",
         component: () => import("@/views/Inicio.vue"),
       },
@@ -51,6 +51,16 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Feed/Details.vue'),
         props: true
       },
+      {
+        path: 'InfoReserva/:id',
+        name: 'InfoReserva',
+        component: () => import('@/views/ReservasLogica/InfoReserva.vue')
+      },
+      {
+        path: 'realizar',
+        name: 'RealizaReserva',
+        component: () => import('@/views/CrearReservaLogica/RealizaReserva.vue'),
+      },
     ],
   },
   {
@@ -72,6 +82,32 @@ const routes: Array<RouteRecordRaw> = [
     path: '/Login/Registro', 
     name: 'Registro',
     component: () => import('@/views/LoginLogica/Registro.vue'),
+  },
+  {
+    path: '/reserva',
+    component: () => import('@/views/Tabs.vue'),
+    children: [
+      {
+        path: 'realizar',
+        name: 'RealizaReserva',
+        component: () => import('@/views/CrearReservaLogica/RealizaReserva.vue'),
+      },
+      {
+        path: 'calendario',
+        name: 'CalendarioReserva',
+        component: () => import('@/views/CrearReservaLogica/CalendarioReserva.vue'),
+      },
+      {
+        path: 'procesar',
+        name: 'ProcesarReserva',
+        component: () => import('@/views/CrearReservaLogica/ProcesarReserva.vue'),
+      },
+      {
+        path: 'final',
+        name: 'FinalReserva',
+        component: () => import('@/views/CrearReservaLogica/FinalReserva.vue'),
+      },
+    ],
   },
 ];
 

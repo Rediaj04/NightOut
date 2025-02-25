@@ -79,7 +79,9 @@
                 </div>
               </div>
 
-              <ion-button expand="block" class="reserve-btn">RESERVAR</ion-button>
+              <ion-button @click="goToReserva" expand="block" class="reserve-button">
+                RESERVAR
+              </ion-button>
             </div>
           </div>
         </template>
@@ -140,6 +142,10 @@ const post = computed<Post | undefined>(() => {
 
 const goToInicio = () => {
   router.push('/Inicio');
+};
+
+const goToReserva = () => {
+  router.push('/reserva/realizar');
 };
 
 // Variables para el ImageViewer
@@ -210,7 +216,7 @@ const toggleFollow = () => {
 
 .detail-image {
   width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
   cursor: pointer;
 }
@@ -219,7 +225,9 @@ const toggleFollow = () => {
   padding: 12px;
   background: rgba(255,255,255,0.05);
   border-radius: 15px;
-  height: 400px;
+  height: auto;
+  min-height: 400px;
+  margin-bottom: 20px;
 }
 
 .venue-header {
@@ -257,7 +265,7 @@ const toggleFollow = () => {
   font-size: 15px;
   line-height: 1.3;
   margin: 8px 0;
-  max-height: 110px;
+  max-height: 80px;
   overflow-y: auto;
 }
 
@@ -285,13 +293,13 @@ const toggleFollow = () => {
 
 .details-grid {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 12px;
 }
 
 .detail-item {
-  padding: 8px;
-  font-size: 14px;
+  padding: 6px;
+  font-size: 13px;
 }
 
 .detail-label {
@@ -299,23 +307,25 @@ const toggleFollow = () => {
   font-weight: bold;
 }
 
-.reserve-btn {
+.reserve-button {
   --background: linear-gradient(to right, #560C78, #180A51);
   --border-radius: 20px;
-  --padding-top: 10px;
-  --padding-bottom: 10px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
   --color: white;
-  margin-top: 10px;
+  margin: 10px auto;
   position: relative;
   overflow: hidden;
   border: 2px solid #4D4DFF;
   border-radius: 20px;
   transition: all 0.3s ease;
-  font-size: 15px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 250px;
 }
 
-.reserve-btn:hover,
-.reserve-btn:active {
+.reserve-button:hover,
+.reserve-button:active {
   --background: linear-gradient(to right, #230A34, #2C1D92);
   border-color: transparent;
   box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
@@ -375,6 +385,7 @@ const toggleFollow = () => {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 0;
+    max-height: 110px;
   }
 
   .rating-container {
@@ -383,9 +394,10 @@ const toggleFollow = () => {
 
   .detail-item {
     padding: 12px;
+    font-size: 14px;
   }
 
-  .reserve-btn {
+  .reserve-button {
     --padding-top: 20px;
     --padding-bottom: 20px;
     font-size: 18px;
