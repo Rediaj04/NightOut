@@ -51,7 +51,11 @@
                   :icon="post.isLiked ? heart : heartOutline"
                   @click="toggleLike(post)"
                 ></ion-icon>
-                <ion-icon class="action-icon calendar clickable" :icon="calendarOutline"></ion-icon>
+                <ion-icon 
+                  class="action-icon calendar clickable" 
+                  :icon="calendarOutline"
+                  @click="goToCalendar"
+                ></ion-icon>
                 <ion-icon class="action-icon share clickable" :icon="shareOutline"></ion-icon>
               </div>
               <div class="right-actions">
@@ -168,6 +172,10 @@ const openImageViewer = (images: string[]) => {
 
 const closeImageViewer = () => {
   isViewerOpen.value = false;
+};
+
+const goToCalendar = () => {
+  router.push('/reserva/realizar');
 };
 </script>
 

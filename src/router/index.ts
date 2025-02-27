@@ -61,6 +61,11 @@ const routes: Array<RouteRecordRaw> = [
         name: 'RealizaReserva',
         component: () => import('@/views/CrearReservaLogica/RealizaReserva.vue'),
       },
+      {
+        path: 'PerfilEdit',
+        name: 'PerfilEdit',
+        component: () => import('@/views/PerfilLogica/PerfilEdit.vue'),
+      },
     ],
   },
   {
