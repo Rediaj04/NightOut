@@ -145,7 +145,7 @@ const goToInicio = () => {
 };
 
 const goToReserva = () => {
-  router.push('/reserva/realizar');
+  router.push('/NightOut/reserva/realizar');
 };
 
 // Variables para el ImageViewer

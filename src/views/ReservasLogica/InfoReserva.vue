@@ -3,27 +3,27 @@
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="inicio" href="/Inicio">
+        <ion-tab-button tab="inicio" href="/NightOut/Inicio">
           <ion-icon :icon="homeOutline"></ion-icon>
           <ion-label>Inicio</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="busqueda" href="/Busqueda">
+        <ion-tab-button tab="busqueda" href="/NightOut/Busqueda">
           <ion-icon :icon="searchOutline"></ion-icon>
           <ion-label>Buscar</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="crearReserva" href="/CrearReserva">
+        <ion-tab-button tab="crearReserva" href="/NightOut/CrearReserva">
           <ion-icon :icon="addCircleOutline"></ion-icon>
           <ion-label>Reservar</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="reservas" href="/Reservas">
+        <ion-tab-button tab="reservas" href="/NightOut/Reservas">
           <ion-icon :icon="calendarOutline"></ion-icon>
           <ion-label>Reservas</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="perfil" href="/Perfil">
+        <ion-tab-button tab="perfil" href="/NightOut/Perfil">
           <ion-icon :icon="personOutline"></ion-icon>
           <ion-label>Perfil</ion-label>
         </ion-tab-button>

@@ -6,11 +6,11 @@
     <ion-content :fullscreen="true">
       <div id="agenda-container">
         <ion-buttons slot="start">
-          <ion-back-button default-href="/reserva/realizar"></ion-back-button>
+          <ion-back-button default-href="/NightOut/reserva/realizar"></ion-back-button>
         </ion-buttons>
         <h1 class="title">Agenda tu día</h1>
         <div class="progress-bar">
-          <div class="progress" style="width: 40%;"></div>
+          <div class="progress" style="width: 30%;"></div>
         </div>
         <div class="calendar">
           <div class="month">{{ currentMonth }}</div>
@@ -78,7 +78,7 @@ const selectDate = (day: Day): void => {
 
 const goToProcess = (): void => {
   if (selectedDate.value) {
-    router.push('/reserva/procesar');
+    router.push('/NightOut/reserva/procesar');
   }
 };
 </script>
@@ -90,28 +90,32 @@ ion-content {
 
 #agenda-container {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .title {
   font-size: 2rem;
   font-weight: bold;
   color: #ff007f;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .progress-bar {
-  background-color: rgba(163, 74, 246, 0.3);
+  height: 15px;
+  background: rgba(163, 74, 246, 0.3);
   border: 2px solid #A34AF6;
   border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
   padding: 3px;
-  margin-bottom: 20px;
 }
 
 .progress {
-  background-color: #6A00FF;
+  height: 100%;
+  background: #6A00FF;
   border-radius: 8px;
-  height: 15px;
   transition: width 0.3s ease;
 }
 
@@ -122,7 +126,11 @@ ion-content {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .month {
@@ -141,6 +149,8 @@ ion-content {
 
 .weekdays div {
   color: #ff007f;
+  font-size: 1.1rem;
+  padding: 8px 0;
 }
 
 .days div {
@@ -148,19 +158,24 @@ ion-content {
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 15px 10px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .days div:hover:not(.disabled) {
   background: rgba(255, 0, 127, 0.2);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .days div.active {
   background: #ff007f;
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .days div.disabled {
@@ -170,17 +185,85 @@ ion-content {
 
 .reserve-button {
   --background: linear-gradient(to right, #560C78, #180A51);
-  --border-radius: 20px;
-  --padding-top: 8px;
-  --padding-bottom: 8px;
-  max-width: 200px;
-  margin: 20px auto;
+  --border-radius: 10px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --color: white;
   font-size: 1rem;
+  margin: 15px auto 0;
+  max-width: 250px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #4D4DFF;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .reserve-button:hover {
   --background: linear-gradient(to right, #230A34, #2C1D92);
-  border-color: transparent;
-  box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
+  border-color: #ff007f;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+/* Ajustes responsive */
+@media (max-width: 480px) {
+  #agenda-container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .calendar {
+    min-height: 350px;
+    padding: 15px;
+  }
+
+  .month {
+    font-size: 1.3rem;
+  }
+
+  .weekdays div {
+    font-size: 0.9rem;
+    padding: 6px 0;
+  }
+
+  .days div {
+    padding: 12px 8px;
+    font-size: 0.9rem;
+  }
+
+  .reserve-button {
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 320px) {
+  .calendar {
+    min-height: 300px;
+    padding: 10px;
+  }
+
+  .days div {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Ajuste para pantallas grandes */
+@media (min-width: 768px) {
+  .calendar {
+    min-height: 450px;
+  }
+
+  .days div {
+    padding: 20px 15px;
+    font-size: 1.2rem;
+  }
 }
 </style>

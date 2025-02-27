@@ -4,27 +4,27 @@
     
     <!-- Barra de tabs móvil -->
     <ion-tab-bar slot="bottom" class="mobile-tabs">
-      <ion-tab-button tab="Inicio" href="/Inicio">
+      <ion-tab-button tab="Inicio" href="/NightOut/Inicio">
         <ion-icon aria-hidden="true" :icon="home" />
         <ion-label>Inicio</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="Busqueda" href="/Busqueda">
+      <ion-tab-button tab="Busqueda" href="/NightOut/Busqueda">
         <ion-icon aria-hidden="true" :icon="search" />
         <ion-label>Búsqueda</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="CrearReserva" href="/CrearReserva">
+      <ion-tab-button tab="CrearReserva" href="/NightOut/CrearReserva">
         <ion-icon aria-hidden="true" :icon="add" />
         <ion-label>Añadir</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="Reservas" href="/Reservas">
+      <ion-tab-button tab="Reservas" href="/NightOut/Reservas">
         <ion-icon aria-hidden="true" :icon="bookmark" />
         <ion-label>Reservas</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="Perfil" href="/Perfil">
+      <ion-tab-button tab="Perfil" href="/NightOut/Perfil">
         <ion-icon aria-hidden="true" :icon="people" />
         <ion-label>Perfil</ion-label>
       </ion-tab-button>

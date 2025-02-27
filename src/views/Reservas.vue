@@ -35,7 +35,7 @@ const postsStore = usePostsStore();
 const reservas = postsStore.posts;
 
 const goToInfoReserva = (id: number) => {
-  router.push({ name: 'InfoReserva', params: { id: id.toString() } });
+  router.push(`/NightOut/InfoReserva/${id}`);
 };
 </script>
 

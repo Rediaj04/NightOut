@@ -36,7 +36,7 @@ const postsStore = usePostsStore();
 const recentItems = computed(() => postsStore.recentItems);
 
 const goBack = () => {
-  router.back();
+  router.push('/NightOut/Inicio');
 };
 
 const removeItem = (index: number) => {
@@ -44,7 +44,7 @@ const removeItem = (index: number) => {
 };
 
 const goToDetails = (id: number) => {
-  router.push({ name: 'Details', params: { id: id.toString() } });
+  router.push(`/NightOut/Details/${id}`);
 };
 </script>
 

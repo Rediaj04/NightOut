@@ -175,7 +175,7 @@ const closeImageViewer = () => {
 };
 
 const goToCalendar = () => {
-  router.push('/reserva/realizar');
+  router.push('/NightOut/reserva/realizar');
 };
 </script>
 

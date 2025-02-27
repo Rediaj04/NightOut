@@ -89,7 +89,7 @@
 
   // Navegación a detalles
   const goToDetails = (id: number) => {
-    router.push({ name: 'Details', params: { id: id.toString() } });
+    router.push(`/NightOut/Details/${id}`);
   };
 
   // Obtener la ubicación del usuario

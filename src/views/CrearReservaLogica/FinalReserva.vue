@@ -36,25 +36,27 @@ const updateProgress = (width: number, status: string) => {
 
 const startProgress = async () => {
   await new Promise(resolve => setTimeout(resolve, 1000));
-  updateProgress(60, 'Verificando datos...');
+  updateProgress(50, 'Iniciando proceso...');
   
   await new Promise(resolve => setTimeout(resolve, 1000));
   updateProgress(75, 'Procesando pago...');
   
   await new Promise(resolve => setTimeout(resolve, 1000));
-  updateProgress(90, 'Confirmando reserva...');
+  updateProgress(85, 'Confirmando reserva...');
   
   await new Promise(resolve => setTimeout(resolve, 1000));
   updateProgress(100, '¡Completado!');
   completed.value = true;
   
-  // Redirigir a InfoReserva después de 2 segundos
   setTimeout(() => {
-    router.push({ name: 'InfoReserva', params: { id: '1' } }); // Puedes ajustar el ID según necesites
+    router.push('/NightOut/InfoReserva/1');
   }, 2000);
 };
 
 onMounted(() => {
+  if (progressBar.value) {
+    progressBar.value.style.width = '50%';
+  }
   startProgress();
 });
 </script>

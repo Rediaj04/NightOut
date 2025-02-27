@@ -8,7 +8,7 @@
         <h1 class="title">Realiza tu reserva</h1>
         
         <div class="progress-bar">
-          <div class="progress" style="width: 20%;"></div>
+          <div class="progress" style="width: 10%;"></div>
         </div>
 
         <div class="form-container">
@@ -104,7 +104,7 @@ const isFormValid = computed(() => {
 
 const goToCalendar = () => {
   if (isFormValid.value) {
-    router.push('/reserva/calendario');
+    router.push('/NightOut/reserva/calendario');
   }
 };
 </script>
@@ -147,19 +147,19 @@ ion-content {
 .form-container {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  padding: 25px;
-  margin-top: 20px;
+  padding: 15px;
+  margin-top: 15px;
 }
 
 .form-group {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .form-group label {
   display: block;
   color: #ff007f;
   font-size: 1.1rem;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .custom-input {
@@ -167,7 +167,7 @@ ion-content {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -182,9 +182,9 @@ ion-content {
 .number-input {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   width: fit-content;
 }
@@ -193,8 +193,8 @@ ion-content {
   background: #ff007f;
   color: white;
   border: none;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   font-size: 1.2rem;
   cursor: pointer;
@@ -222,9 +222,9 @@ ion-content {
 .service-option {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
+  padding: 10px;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -242,7 +242,7 @@ ion-content {
 }
 
 .service-icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #ff007f;
 }
 
@@ -272,40 +272,42 @@ ion-content {
 
 .reserve-button {
   --background: linear-gradient(to right, #560C78, #180A51);
-  --border-radius: 20px;
-  --padding-top: 20px;
-  --padding-bottom: 20px;
+  --border-radius: 10px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --color: white; 
   font-size: 1rem;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
   max-width: 250px;
   position: relative;
   overflow: hidden;
-  border: 2px solid #4D4DFF;
+  border: 2px solid #4D4DFF; 
+  border-radius: 10px; 
   transition: all 0.3s ease;
 }
 
 .reserve-button:hover {
   --background: linear-gradient(to right, #230A34, #2C1D92);
-  border-color: transparent;
-  box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
+  border-color: #ff007f; /* Cambia el color del borde al pasar el mouse */
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.3); /* Añade un efecto de sombra para resaltar el botón */
 }
-
 /* Ajustes responsive */
 @media (max-width: 480px) {
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .form-container {
+  #reserva-container {
     padding: 15px;
   }
 
-  .service-option {
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .form-container {
     padding: 12px;
   }
 
-  .service-icon {
-    font-size: 1.5rem;
+  .service-option {
+    padding: 8px;
   }
 }
 </style>

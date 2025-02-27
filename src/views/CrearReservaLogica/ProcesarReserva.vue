@@ -6,11 +6,11 @@
     <ion-content :fullscreen="true">
       <div id="pago-container">
         <ion-buttons slot="start">
-          <ion-back-button default-href="/reserva/calendario"></ion-back-button>
+          <ion-back-button default-href="/NightOut/reserva/calendario"></ion-back-button>
         </ion-buttons>
         <h1 class="title">Realiza el pago</h1>
         <div class="progress-bar">
-          <div class="progress" style="width: 80%;"></div>
+          <div class="progress" style="width: 50%;"></div>
         </div>
         <p class="total">Total a pagar: $60000</p>
         
@@ -145,7 +145,7 @@ const isFormValid = computed(() => {
 
 const procesarPago = () => {
   if (isFormValid.value) {
-    router.push('/reserva/final');
+    router.push('/NightOut/reserva/final');
   }
 };
 </script>
@@ -182,6 +182,7 @@ ion-content {
   height: 100%;
   background: #6A00FF;
   border-radius: 8px;
+  transition: width 0.3s ease;
 }
 
 .total {

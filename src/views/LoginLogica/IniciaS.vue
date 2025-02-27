@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <ion-button class="login-button" router-link="/NightOut/Inicio"> <!--router-link="/Inicio"> -->
+        <ion-button class="login-button" router-link="/NightOut/Inicio">
           LOGIN
         </ion-button>
       </div>
