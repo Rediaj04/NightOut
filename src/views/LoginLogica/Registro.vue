@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <ion-button class="login-button" router-link="/NightOut/Inicio">
+        <ion-button class="login-button" @click="handleSignUp">
           SIGN UP
         </ion-button>
       </div>
@@ -62,6 +62,9 @@ import { ref } from 'vue';
 import { IonPage, IonContent, IonInput, IonButton, IonIcon } from '@ionic/vue';
 import { personOutline, mailOutline, lockClosedOutline } from 'ionicons/icons';
 import ImageViewer from '@/components/ImageViewer/ImageViewer.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 // Variables para el visor de imágenes
 const isViewerOpen = ref(false);
@@ -74,6 +77,21 @@ const openImageViewer = () => {
 
 const closeImageViewer = () => {
   isViewerOpen.value = false;
+};
+
+// Función para manejar el registro
+const handleSignUp = async () => {
+  try {
+    // Aquí iría la lógica de registro cuando la implementes
+    
+    // Navegación programática
+    await router.push('/NightOut/Inicio');
+    
+    // Forzar recarga del componente si es necesario
+    window.location.reload();
+  } catch (error) {
+    console.error('Error durante la navegación:', error);
+  }
 };
 </script>
 

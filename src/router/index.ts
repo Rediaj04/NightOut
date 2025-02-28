@@ -8,11 +8,6 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/Login', 
   },
   {
-    path: "/Inicio",
-    name: "Inicio",
-    component: () => import("@/views/Inicio.vue"),
-  },
-  {
     path: '/NightOut/', 
     component: Tabs, 
     children: [
@@ -21,9 +16,9 @@ const routes: Array<RouteRecordRaw> = [
         redirect: 'Inicio', 
       },
       {
-        path: "Inicio",
-        name: "Inicio",
-        component: () => import("@/views/Inicio.vue"),
+        path: 'Inicio',
+        name: 'Inicio',
+        component: () => import('@/views/Inicio.vue'),
       },
       {
         path: 'Busqueda', 
@@ -111,7 +106,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log("Navigating to:", to.path);
+  console.log('Navegando a:', to.path);
+  console.log('Desde:', from.path);
   next();
 });
 

@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <ion-button class="login-button" router-link="/NightOut/Inicio">
+        <ion-button class="login-button" @click="handleLogin">
           LOGIN
         </ion-button>
       </div>
@@ -44,6 +44,21 @@ import { useRouter } from 'vue-router';
 
 const username = ref('');
 const password = ref('');
+const router = useRouter();
+
+const handleLogin = async () => {
+  try {
+    // Aquí iría la lógica de autenticación cuando la implementes
+    
+    // Navegación programática
+    await router.push('/NightOut/Inicio');
+    
+    // Forzar recarga del componente si es necesario
+    window.location.reload();
+  } catch (error) {
+    console.error('Error durante la navegación:', error);
+  }
+};
 </script> 
 
 <style scoped>
