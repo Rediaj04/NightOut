@@ -9,9 +9,9 @@
       </div>
 
       <div class="recent-section">
-        <h2 class="recent-title">Recientes</h2>
+        <h2 class="recent-title">{{ sectionTitle }}</h2>
         <ul class="recent-list">
-          <li v-for="(item, index) in recentItems" :key="item.id" class="recent-item">
+          <li v-for="(item, index) in filteredItems" :key="item.id" class="recent-item">
             <img :src="item.image" class="item-icon" alt="logo" />
             <span class="item-name clickable" @click="goToDetails(item.id)">{{ item.name }}</span>
             <ion-icon :icon="close" class="close-icon" @click.stop="removeItem(index)" />
@@ -34,6 +34,19 @@ const searchQuery = ref('');
 const postsStore = usePostsStore();
 
 const recentItems = computed(() => postsStore.recentItems);
+
+const filteredItems = computed(() => {
+  if (!searchQuery.value) {
+    return recentItems.value;
+  }
+  return recentItems.value.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+  );
+});
+
+const sectionTitle = computed(() => {
+  return searchQuery.value ? 'Resultados encontrados' : 'Recientes';
+});
 
 const goBack = () => {
   router.push('/NightOut/Inicio');
