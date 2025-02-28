@@ -161,25 +161,26 @@ ion-content {
 }
 
 .info-container {
-  padding: 20px;
-  max-width: 1200px;
+  padding: 15px;
+  max-width: 800px;
   margin: 0 auto;
+  display: grid;
+  gap: 20px;
 }
 
 .receipt-container {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 30px;
+  border-radius: 15px;
+  padding: 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .receipt-title {
   color: #ff007f;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-shadow: 0 2px 4px rgba(255, 0, 127, 0.2);
 }
 
@@ -235,8 +236,8 @@ ion-content {
 .calendar {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  padding: 20px;
-  max-width: 500px;
+  padding: 15px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -279,19 +280,22 @@ ion-content {
 
 /* Galería de imágenes */
 .club-info {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .image-section {
-  border-radius: 20px;
-  overflow: hidden;
+  display: grid;
+  gap: 10px;
 }
 
 .main-image-container {
   width: 100%;
-  height: 400px;
+  aspect-ratio: 1;
+  max-width: 400px;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .main-image {
@@ -307,10 +311,9 @@ ion-content {
 
 .thumbnail-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 10px;
-  margin-top: 15px;
-  padding: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 8px;
+  padding: 5px;
 }
 
 .thumbnail {
@@ -359,59 +362,47 @@ ion-content {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .info-container {
-    padding: 15px;
+    padding: 10px;
   }
 
   .receipt-title {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .main-image-container {
-    height: 300px;
-  }
-
-  .thumbnail {
-    min-width: 60px;
-  }
-
-  .club-name {
-    font-size: 1.5rem;
+    max-width: 300px;
   }
 }
 
 @media (max-width: 480px) {
-  .receipt-title {
-    font-size: 1.5rem;
+  .info-container {
+    padding: 8px;
   }
 
-  .detail-item {
-    padding: 12px;
-  }
-
-  .label, .value {
-    font-size: 1rem;
-  }
-
-  .main-image-container {
-    height: 250px;
-  }
-
-  .club-image {
-    width: 50px;
-    height: 50px;
-  }
-
-  .club-name {
-    font-size: 1.3rem;
-  }
-
-  .calendar {
+  .receipt-container {
     padding: 15px;
   }
 
+  .receipt-title {
+    font-size: 1.2rem;
+  }
+
+  .calendar {
+    padding: 10px;
+  }
+
   .days div {
-    padding: 8px;
-    font-size: 0.9rem;
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  .thumbnail-container {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   }
 }
 </style> 

@@ -91,10 +91,28 @@ ion-tab-button {
   --color: white;
   --color-selected: #ff007f;
   transition: all 0.2s ease;
+  /* Añadimos estos estilos para mejorar la visualización en móvil */
+  font-size: 12px;
+  min-height: 56px;
+  padding: 4px 2px;
 }
 
 ion-tab-button::part(native) {
-  padding: 10px;
+  padding: 6px 2px;
+}
+
+/* Ajustamos el tamaño del icono y el texto */
+ion-tab-button ion-icon {
+  font-size: 20px;
+  min-width: 20px;
+}
+
+ion-tab-button ion-label {
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 2px 0;
 }
 
 /* Efecto hover y seleccionado para tabs móviles */

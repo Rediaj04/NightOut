@@ -78,7 +78,7 @@
             @click="procesarPago"
             :disabled="!isFormValid"
           >
-            SIGUIENTE
+            PAGAR
           </ion-button>
         </form>
       </div>
@@ -156,9 +156,12 @@ ion-content {
 }
 
 #pago-container {
-  padding: 20px;
+  padding: 15px;
   max-width: 600px;
   margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -194,20 +197,14 @@ ion-content {
 
 .card-preview {
   perspective: 1000px;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 
 .card {
   background: linear-gradient(135deg, #560C78, #180A51);
-  padding: 25px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: rotateY(5deg);
 }
 
 .card-chip {
@@ -219,10 +216,10 @@ ion-content {
 }
 
 .card-number {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   letter-spacing: 2px;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -240,13 +237,14 @@ ion-content {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 8px;
   color: #ff007f;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
 input {
@@ -254,9 +252,9 @@ input {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -269,37 +267,77 @@ input:focus {
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 15px;
 }
 
 .reserve-button {
   --background: linear-gradient(to right, #560C78, #180A51);
-  --border-radius: 20px;
-  --padding-top: 8px;
-  --padding-bottom: 8px;
-  max-width: 200px;
-  margin: 20px auto;
+  --border-radius: 10px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --color: white; 
   font-size: 1rem;
+  margin: 20px auto 0;
+  max-width: 250px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #4D4DFF; 
+  border-radius: 10px; 
+  transition: all 0.3s ease;
 }
 
 .reserve-button:hover {
   --background: linear-gradient(to right, #230A34, #2C1D92);
-  border-color: transparent;
-  box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
+  border-color: #ff007f;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+.reserve-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .card-number {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
-  .card-preview {
+  .card {
     padding: 15px;
   }
   
   .form-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .total {
+    font-size: 1.3rem;
+    margin: 15px 0;
+  }
+}
+
+@media (max-height: 700px) {
+  .card-preview {
+    margin: 10px 0;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .card {
+    padding: 15px;
   }
 }
 </style>

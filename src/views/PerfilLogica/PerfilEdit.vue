@@ -43,7 +43,7 @@
         <div class="music-section">
           <div class="music-content">
             <p class="music-text">
-              <span class="music-label">Música:</span>
+              <span class="music-label">Música: </span>
               <span class="song-info">Progreso - Eladio Carrion</span>
             </p>
             <div class="music-line"></div>
@@ -117,8 +117,8 @@ ion-content {
 }
 
 .profile-image-container {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
   margin: 15px auto 5px;
@@ -248,8 +248,8 @@ textarea.input-field {
   }
 
   .profile-image-container {
-    width: 130px;
-    height: 130px;
+    width: 180px;
+    height: 180px;
     margin: 10px auto 5px;
   }
 
@@ -270,8 +270,8 @@ textarea.input-field {
 
 @media (max-width: 480px) {
   .profile-image-container {
-    width: 130px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
   }
 }
 </style>

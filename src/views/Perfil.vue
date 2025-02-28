@@ -131,9 +131,8 @@ ion-content {
 }
 
 .profile-image-container {
-  flex-shrink: 0;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid #ff007f;
@@ -157,7 +156,10 @@ ion-content {
 }
 
 .profile-bio {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
 }
 
 .username {
@@ -169,32 +171,38 @@ ion-content {
 
 .bio {
   font-size: 1.2rem;
-  color: #ccc;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 .edit-profile-btn {
-  --background: linear-gradient(to right, #560C78, #180A51);
-  --border-radius: 20px;
-  --padding-top: 8px;
-  --padding-bottom: 8px;
-  --color: white;
-  margin: 10px auto;
+  background: linear-gradient(to right, #560C78, #180A51);
+  border-radius: 25px;
+  padding: 15px;
+  color: white; 
+  font-size: 1rem;
+  margin: 15px 0 0 0;
+  max-width: 200px;
   position: relative;
   overflow: hidden;
-  border: 2px solid #4D4DFF;
-  border-radius: 20px;
+  border: 2px solid #4D4DFF; 
   transition: all 0.3s ease;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
-  max-width: 250px;
+  cursor: pointer;
 }
 
-.edit-profile-btn:hover,
-.edit-profile-btn:active {
-  --background: linear-gradient(to right, #230A34, #2C1D92);
-  border-color: transparent;
-  box-shadow: 0 0 15px rgba(44, 29, 146, 0.5);
+.edit-profile-btn:hover {
+  background: linear-gradient(to right, #230A34, #2C1D92);
+  border-color: #ff007f;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+.edit-profile-btn ion-icon {
+  color: white;
+  font-size: 1.2rem;
 }
 
 .profile-stats {
@@ -295,9 +303,8 @@ ion-content {
   }
 
   .profile-image-container {
-    width: 150px; /* Aumenta el tamaño de la imagen */
-    height: 150px; /* Aumenta el tamaño de la imagen */
-    margin: 0 auto;
+    width: 180px;
+    height: 180px;
   }
 
   .profile-info {
@@ -313,9 +320,8 @@ ion-content {
   }
 
   .profile-bio {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .places-grid {
@@ -332,6 +338,11 @@ ion-content {
     flex: 1 1 30%;
     min-width: 100px;
   }
+
+  .edit-profile-btn {
+    width: 80%;
+    margin: 15px auto 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -340,8 +351,8 @@ ion-content {
   }
 
   .profile-image-container {
-    width: 130px; /* Aumenta el tamaño de la imagen */
-    height: 130px; /* Aumenta el tamaño de la imagen */
+    width: 160px;
+    height: 160px;
   }
 
   .username {
@@ -365,11 +376,8 @@ ion-content {
   }
 
   .edit-profile-btn {
-    --padding-top: 20px;
-    --padding-bottom: 20px;
-    font-size: 18px;
-    max-width: 300px;
-    margin: 20px auto;
+    font-size: 1rem;
+    padding: 15px;
   }
 }
 </style>

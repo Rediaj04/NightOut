@@ -3,6 +3,12 @@
     <ion-content :fullscreen="true">
       <div id="procesando-container">
         <h1 class="title">Procesando pago</h1>
+        
+        <!-- Nuevo contenedor para el logo -->
+        <div class="logo-container">
+          <img src="@/assets/imagenes/info/logo.png" alt="Logo" class="logo-image">
+        </div>
+
         <div class="progress-bar">
           <div class="progress" ref="progressBar"></div>
         </div>
@@ -116,6 +122,20 @@ ion-content {
   color: #4CAF50;
 }
 
+/* Nuevo estilo para el logo */
+.logo-container {
+  width: 100%;
+  max-width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.logo-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Ajustes responsive */
 @media (max-width: 480px) {
   .title {
@@ -124,6 +144,11 @@ ion-content {
   
   .progress-status {
     font-size: 1rem;
+  }
+  
+  .logo-container {
+    max-width: 150px;
+    margin: 15px auto;
   }
 }
 </style>
