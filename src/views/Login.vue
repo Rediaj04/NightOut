@@ -5,9 +5,9 @@
           <h1 class="title">NightOut</h1>
           <p class="subtitle">Discover the best parties near you</p>
           <img src="@/assets/imagenes/info/logo.png" alt="Logo" class="logo">
-          <ion-button class="auth-button" router-link="/Login/Sesion">LOGIN</ion-button>
-          <ion-button class="auth-button" router-link="/Login/Registro">SIGN UP</ion-button>
-          <a router-link="/Login/Contrasena" class="forgot-password">He olvidado mi contraseña</a>
+          <ion-button class="auth-button" :router-link="'/Login/Sesion'">LOGIN</ion-button>
+          <ion-button class="auth-button" :router-link="'/Login/Registro'">SIGN UP</ion-button>
+          <router-link to="/Login/Contrasena" class="forgot-password">He olvidado mi contraseña</router-link>
       </div>
     </ion-content>
   </ion-page>
